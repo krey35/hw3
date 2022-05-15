@@ -17,7 +17,8 @@ class PlacesController < ApplicationController
     #CREATE action to receive the info from the "new" form and create a new place
     #(HTTP POST Method) Path /places - this action has no view file
     def create
-        @place = Place.new(params["place"])
+        @place = Place.new
+        @place["name"] = params["place"]["name"]
         @place.save
         redirect_to "/places"
     end
