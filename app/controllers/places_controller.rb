@@ -8,6 +8,7 @@ class PlacesController < ApplicationController
     #reads from show.html.erb
     def show
         @place = Place.find_by({ "id" => params["id"] })
+        @posts = Post.where({ "place_id" => params["id"] })
     end 
     #NEW action (a form) to create a new place (HTTP GET Method) Path /places/new
     #

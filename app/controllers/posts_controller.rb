@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
     #xxx
+    #def index
+      #  @posts = Post.all
+    #end
+    #yyy
+    #def show 
+       # @post = Post.find_by({ "id" => params["id"] })
+       # @post = Place.find_by({ "id" => @post["place_id"] })
+    #end
+    #zzz
     def new
         @post = Post.new
-        @post = Post.find_by({ "id" => params["place_id"] })
-        @post["place_id"] = @post["id"]
+       @place = Place.find_by({ "id" => params["place_id"] })
+        @post["place_id"] = @place["id"]
     end
-    #yyy
+    #aaa
     def create
         @post = Post.new
         @post["title"] = params["post"]["title"]
